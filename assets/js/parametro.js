@@ -1,28 +1,17 @@
-
-function obterValorDoParametro(parametro) {
-    var url = new URL(window.location.href);
-    return url.searchParams.get(parametro);
+var url = new URL(window.location.href);
+var keyword = url.searchParams.get('k');
+if (keyword === null) {
+    var keyword = "Criação de Sites e Google Ads";
   }
-  
-  var k = obterValorDoParametro('k');
-
-
-var keyword = location.search.slice(1);
 var expressao = /-/gm;
 var keyword2 = keyword.replace(expressao," ");
 var palavras = keyword2.split(" ");
 
+//fazer com que cada palavra comece com letra maiúscula
 for (let i = 0; i < palavras.length; i++) {
   palavras[i] = palavras[i].charAt(0).toUpperCase() + palavras[i].slice(1);
 }
 var keyword = palavras.join(" ");
-
-if (keyword.length === 0) {
-    //var keyword = "Criação de Sites e Google Ads";
-    var keyword = "Criação de Sites e Google Ads";
-} else {
-    var keyword = palavras.join(" ");
-}
 
 
 
